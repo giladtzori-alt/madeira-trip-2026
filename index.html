@@ -1,0 +1,371 @@
+<!doctype html>
+<html lang="he">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<title>Madeira · Christmas &amp; New Year</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Frank+Ruhl+Libre:wght@500;700&family=Rubik:wght@400;500;600;700&display=swap">
+<style>
+:root{box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+body{margin:0;padding:0}
+img{max-width:100%}
+:root {
+  --bg: #f3f7f5; --paper: #ffffff; --ink: #14231d; --muted: #5a6b64; --line: #dbe5e0;
+  --ocean: #1b5f8c; --ocean-soft: #dcebf5; --laurel: #2e7d4f; --laurel-soft: #dcefe3;
+  --coral: #d9493a; --coral-soft: #fbe2de; --sun: #e9a400; --sun-soft: #fff2cc; --plum: #6d4bb8; --plum-soft: #ebe3f8;
+  --hero1: #0e3550; --hero2: #1b5f8c; --hero-ink: #f6fbff;
+  --display: "Frank Ruhl Libre", Georgia, serif; --body: "Rubik", system-ui, sans-serif;
+  color-scheme: light;
+}
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) {
+  --bg: #0f1714; --paper: #18221e; --ink: #e9f1ed; --muted: #9fb0a8; --line: #2a3832;
+  --ocean-soft: #13293a; --laurel-soft: #12291c; --coral-soft: #3a1c18; --sun-soft: #352a0b; --plum-soft: #261d38;
+  --hero1: #081c2a; --hero2: #0f3d5c; color-scheme: dark; } }
+:root[data-theme="dark"] {
+  --bg: #0f1714; --paper: #18221e; --ink: #e9f1ed; --muted: #9fb0a8; --line: #2a3832;
+  --ocean-soft: #13293a; --laurel-soft: #12291c; --coral-soft: #3a1c18; --sun-soft: #352a0b; --plum-soft: #261d38;
+  --hero1: #081c2a; --hero2: #0f3d5c; color-scheme: dark; }
+body { background: var(--bg); color: var(--ink); font-family: var(--body); font-size: 15px; line-height: 1.55; }
+.wrap { direction: rtl; text-align: right; max-width: 1080px; margin: 0 auto; padding-block: 20px 48px; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); display: grid; gap: 30px; }
+h1, h2, h3 { font-family: var(--display); font-weight: 700; margin: 0; text-wrap: balance; }
+h2 { font-size: 26px; display: flex; align-items: center; gap: 10px; }
+h2 .dot { width: 12px; height: 12px; border-radius: 50%; flex: none; }
+p { margin: 0; }
+.muted { color: var(--muted); }
+.ltr { direction: ltr; unicode-bidi: isolate; display: inline-block; }
+.tnum { font-variant-numeric: tabular-nums; }
+section { display: grid; gap: 14px; }
+
+.hero { background: linear-gradient(135deg, var(--hero1), var(--hero2)); color: var(--hero-ink); border-radius: 22px; padding: 26px; display: grid; grid-template-columns: 1.4fr 1fr; gap: 20px; position: relative; overflow: hidden; }
+.hero::before { content: ""; position: absolute; inset-inline-start: -80px; bottom: -120px; width: 320px; height: 320px; border-radius: 50%; background: radial-gradient(circle, rgba(233,164,0,.35) 0 30%, transparent 31%), radial-gradient(circle, rgba(46,125,79,.4) 0 55%, transparent 56%); pointer-events: none; }
+.eyebrow { font-size: 13px; letter-spacing: .04em; color: var(--sun); font-weight: 600; }
+.hero h1 { font-size: clamp(30px, 5.5vw, 50px); line-height: 1.1; margin-top: 6px; }
+.hero .sub { margin-top: 10px; opacity: .88; max-width: 52ch; }
+.count { margin-top: 16px; display: inline-flex; align-items: baseline; gap: 8px; background: rgba(255,255,255,.1); border: 1px solid rgba(255,255,255,.18); border-radius: 999px; padding: 6px 14px; }
+.count b { font-family: var(--display); font-size: 24px; color: var(--sun); }
+.weather { background: rgba(255,255,255,.08); border: 1px solid rgba(255,255,255,.16); border-radius: 16px; padding: 16px; display: grid; gap: 10px; align-content: start; z-index: 1; }
+.wtop { display: flex; justify-content: space-between; align-items: center; gap: 8px; }
+.temps { display: flex; gap: 16px; align-items: baseline; flex-wrap: wrap; }
+.big { font-family: var(--display); font-size: 42px; line-height: 1; }
+.lo { font-size: 17px; opacity: .8; }
+.chips { display: flex; flex-wrap: wrap; gap: 6px; }
+.chip { font-size: 12px; background: rgba(255,255,255,.12); border-radius: 999px; padding: 3px 10px; }
+.weather a { color: var(--sun); font-weight: 600; text-decoration: none; }
+.weather a:hover { text-decoration: underline; }
+.badge { font-size: 11px; font-weight: 700; padding: 2px 9px; border-radius: 999px; background: rgba(255,255,255,.2); }
+.wnote { font-size: 12px; opacity: .75; }
+
+.card { background: var(--paper); border: 1px solid var(--line); border-radius: 16px; padding: 16px; display: grid; gap: 8px; align-content: start; min-width: 0; }
+.verdict { border-inline-start: 6px solid var(--laurel); }
+.review { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr)); gap: 14px; }
+.rcol { display: grid; gap: 10px; align-content: start; }
+.rcol h3 { font-size: 18px; display: flex; gap: 8px; align-items: center; }
+.finding { background: var(--paper); border: 1px solid var(--line); border-inline-start: 5px solid var(--tone); border-radius: 12px; padding: 12px 14px; display: grid; gap: 4px; }
+.finding b { font-weight: 600; }
+.finding p { color: var(--muted); font-size: 14px; }
+.pill { justify-self: start; font-size: 12px; font-weight: 700; padding: 3px 10px; border-radius: 999px; white-space: nowrap; }
+.ok { background: var(--laurel-soft); color: var(--laurel); }
+.warn { background: var(--sun-soft); color: #8a6200; }
+.bad { background: var(--coral-soft); color: var(--coral); }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .warn { color: var(--sun); } }
+:root[data-theme="dark"] .warn { color: var(--sun); }
+
+.hl { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 230px), 1fr)); gap: 14px; }
+.hl .card { border-top: 6px solid var(--accent); }
+.k { font-size: 12px; font-weight: 700; color: var(--accent); letter-spacing: .03em; }
+.hl h3 { font-size: 19px; }
+.hl ul, .day ul { margin: 0; padding-inline-start: 18px; color: var(--muted); }
+
+.days { display: grid; gap: 12px; }
+.day { background: var(--paper); border: 1px solid var(--line); border-radius: 16px; overflow: hidden; display: grid; grid-template-columns: 120px 1fr; }
+.dhead { background: var(--accent); color: #fff; padding: 14px; display: grid; align-content: start; gap: 2px; }
+.dhead .dn { font-family: var(--display); font-size: 30px; line-height: 1; }
+.dhead .dw { font-size: 13px; opacity: .9; }
+.dbody { padding: 14px 16px; display: grid; gap: 8px; min-width: 0; }
+.dbody h3 { font-size: 19px; }
+.tags { display: flex; flex-wrap: wrap; gap: 6px; }
+.tag { font-size: 12px; padding: 2px 9px; border-radius: 999px; background: var(--bg); border: 1px solid var(--line); color: var(--muted); }
+.sched { list-style: none; margin: 0; padding: 0; display: grid; gap: 6px; }
+.sched li { display: grid; grid-template-columns: 74px 1fr; gap: 10px; }
+.sched .t { font-weight: 700; color: var(--accent); direction: ltr; text-align: right; font-variant-numeric: tabular-nums; }
+.tip { font-size: 13px; background: var(--sun-soft); border-radius: 10px; padding: 8px 10px; }
+
+.two { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 420px), 1fr)); gap: 14px; }
+.list { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; }
+.item { display: grid; grid-template-columns: 24px 1fr auto; gap: 10px; align-items: start; padding: 10px 12px; border-radius: 12px; background: var(--bg); border: 1px solid var(--line); cursor: pointer; }
+.item input { width: 20px; height: 20px; margin: 2px 0 0; accent-color: var(--laurel); cursor: pointer; }
+.item.done { opacity: .55; }
+.item.done .txt { text-decoration: line-through; }
+.item .txt small { display: block; color: var(--muted); font-size: 13px; }
+.progress { height: 8px; border-radius: 999px; background: var(--line); overflow: hidden; }
+.progress span { display: block; height: 100%; background: var(--laurel); width: 0; transition: width .3s; }
+.sync { font-size: 12px; color: var(--muted); }
+
+table { width: 100%; border-collapse: collapse; font-variant-numeric: tabular-nums; }
+th, td { text-align: right; padding: 8px 6px; border-bottom: 1px solid var(--line); vertical-align: top; }
+th { font-size: 12px; color: var(--muted); font-weight: 700; }
+td.n, th.n { text-align: left; }
+tfoot td { font-weight: 700; border-bottom: 0; }
+.scroll { overflow-x: auto; }
+details { background: var(--paper); border: 1px solid var(--line); border-radius: 16px; padding: 14px 16px; }
+summary { cursor: pointer; font-weight: 700; }
+details ul { margin: 10px 0 0; padding-inline-start: 18px; display: grid; gap: 4px; }
+a { color: var(--ocean); }
+:focus-visible { outline: 3px solid var(--sun); outline-offset: 2px; }
+@media (max-width: 720px) { .hero { grid-template-columns: 1fr; } .day { grid-template-columns: 1fr; } .dhead { display: flex; align-items: baseline; gap: 10px; } }
+@media (prefers-reduced-motion: reduce) { .progress span { transition: none; } }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<section class="hero" id="top">
+  <div>
+    <div class="eyebrow">גלעד ומרים · חופשה זוגית · 6 ימי מסלולים</div>
+    <h1>מדיירה: מסלולים, חג וזיקוקים</h1>
+    <p class="sub">25 בדצמבר 2026 – 2 בינואר 2027 · שני בסיסים במדיירה (Santo da Serra במזרח, Arco da Calheta במערב) ולילה אחד בפרנקפורט בדרך הביתה.</p>
+    <div class="count" id="countdown"><b>—</b><span>ימים להמראה</span></div>
+  </div>
+  <aside class="weather" aria-label="מזג האוויר">
+    <div class="wtop"><strong>מזג האוויר בפונשל</strong><span class="badge" id="wbadge">ממוצע דצמבר</span></div>
+    <div class="temps"><span class="big" id="whi">20°</span><span class="lo" id="wlo">15° בלילה</span></div>
+    <div class="chips" id="wfacts"><span class="chip">גשם ב-~16 ימים בחודש</span><span class="chip">בהרים קר ב-10–15° יותר</span><span class="chip">זריחה ~08:05</span></div>
+    <p class="wnote" id="wnote">תחזית אמיתית לתאריכים תופיע כאן מאמצע דצמבר. בפסגות (1,800 מ׳) יכול להיות קרוב לאפס עם רוח.</p>
+    <a href="https://www.holiday-weather.com/funchal/" target="_blank" rel="noopener">מזג האוויר בפונשל עכשיו ←</a>
+  </aside>
+</section>
+
+<section id="review">
+  <h2><span class="dot" style="background:var(--laurel)"></span>סקירת התוכנית</h2>
+  <div class="card verdict">
+    <p><b>התוכנית טובה ומבוססת היטב:</b> כל הטיסות והמלונות תואמים לאישורי ההזמנה, החלוקה לשני בסיסים חכמה, וההחלטה להישאר ב-Engenho Velho ב-31.12 נכונה. יש 3 דברים שחייבים לתקן, וכמה שכדאי לשפר.</p>
+  </div>
+  <div class="review">
+    <div class="rcol">
+      <h3><span class="pill bad">לתקן</span></h3>
+      <div class="finding" style="--tone:var(--coral)"><b>הרשמה למסלולים חובה מ-2026</b><p>כל מסלול PR דורש הזמנה ב-SIMplifica לכל אדם, לכל מסלול, ליום, עם חלון כניסה של 30 דק׳. €4.50 למסלול, PR1 €10.50. כדאי להזמין ברגע שנפתח, במיוחד PR1, PR8 ו-PR6.</p></div>
+      <div class="finding" style="--tone:var(--coral)"><b>Hilton פרנקפורט מוזמן ל-1 מבוגר</b><p>לשנות ל-2 מבוגרים. ביטול חינם עד 27.12, כך שאפשר לבדוק מחיר מעודכן.</p></div>
+      <div class="finding" style="--tone:var(--coral)"><b>הרכב מוזמן, אבל עם כיסוי בסיסי בלבד</b><p>Dollar דרך DiscoverCars (D015438181), בדלפק Hertz. פיקדון €1,100 בכרטיס אשראי על שמך. בדרך כלל אתה לוקח כיסוי מלא, כאן אין. בתוכנית הרכב מסומן ״להזמין״, אבל הוא כבר מוזמן.</p></div>
+    </div>
+    <div class="rcol">
+      <h3><span class="pill warn">לשפר</span></h3>
+      <div class="finding" style="--tone:var(--sun)"><b>Enotel: חדר Twin (שתי מיטות)</b><p>לבקש מיטה זוגית, כמו שאישרו ב-Engenho Velho (King).</p></div>
+      <div class="finding" style="--tone:var(--sun)"><b>ארוחת בוקר ב-Engenho Velho רק 08:00–10:00</b><p>ב-29–31.12 יוצאים לפני 08:00. לבקש ארוחת בוקר ארוזה או להצטייד מראש. צ׳ק-אאוט ב-1.1 עד 11:00 (אחרי זה €30 לשעה).</p></div>
+      <div class="finding" style="--tone:var(--sun)"><b>PR1 הוא מסלול לכיוון אחד</b><p>נפתח מחדש ב-27.4.2026. לפי מדריכים מ-2026 אין הלוך-חזור, ולכן כדאי לוודא שהאפשרות הקצרה (Pedra Rija וחזרה) עדיין מותרת. ההסעה מ-Achada do Teixeira חייבת להיות מוזמנת.</p></div>
+      <div class="finding" style="--tone:var(--sun)"><b>ערב השנה החדשה</b><p>נסיעה של שעה+ חזרה אחרי חצות בעומס; הנהג נשאר פיכח. להזמין מסעדה כבר עכשיו ולחנות בצד המערבי של פונשל כדי לצאת מהר.</p></div>
+    </div>
+    <div class="rcol">
+      <h3><span class="pill ok">מאושר</span></h3>
+      <div class="finding" style="--tone:var(--laurel)"><b>טיסות 8383T4 תואמות בדיוק</b><p>כל השעות נכונות. מושבים חלון+מעבר בכל טיסה, מזוודה 23 ק״ג לכל אחד כלולה (Economy Comfort Plus).</p></div>
+      <div class="finding" style="--tone:var(--laurel)"><b>השכרת הרכב פתוחה בחג המולד</b><p>הדלפק פועל 07:00–23:59, איסוף 16:00, הנחיתה 16:05. להוסיף את מספר הטיסה LH4410 להזמנה.</p></div>
+      <div class="finding" style="--tone:var(--laurel)"><b>Hilton מחובר לטרמינל 1</b><p>הנחיתה מפונשל והטיסה לתל אביב שתיהן מטרמינל 1. אין צורך במונית.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="highlights">
+  <h2><span class="dot" style="background:var(--ocean)"></span>עיקרי הטיול</h2>
+  <div class="hl">
+    <article class="card" style="--accent:var(--ocean)">
+      <div class="k">טיסות · Lufthansa 8383T4</div>
+      <h3>TLV ⇄ FNC דרך פרנקפורט</h3>
+      <ul><li>25.12 · 07:05 → 16:05 · מושבים 10A/C, 14A/C</li><li>1.1 · 16:55 → פרנקפורט 22:10</li><li>2.1 · 10:20 → 15:30 · מושבים 22A/C</li></ul>
+      <span class="pill ok">הוזמן ושולם</span>
+    </article>
+    <article class="card" style="--accent:var(--laurel)">
+      <div class="k">3 לילות · מזרח</div>
+      <h3>Enotel Santo da Serra</h3>
+      <ul><li>25–28.12 · ארוחת בוקר כלולה</li><li>Standard Twin · €614 שולם</li><li>ביטול חינם עד 23.12</li></ul>
+      <span class="pill warn">לבקש מיטה זוגית</span>
+    </article>
+    <article class="card" style="--accent:var(--plum)">
+      <div class="k">4 לילות · מערב · Adults only</div>
+      <h3>Engenho Velho</h3>
+      <ul><li>28.12–1.1 · King · ארוחת בוקר 08:00–10:00</li><li>€808, יחויב אוטומטית</li><li>ביטול חינם עד 13.12</li></ul>
+      <span class="pill ok">הוזמן</span>
+    </article>
+    <article class="card" style="--accent:var(--sun)">
+      <div class="k">1 לילה · שדה התעופה</div>
+      <h3>Hilton Frankfurt Airport</h3>
+      <ul><li>1–2.1 · Queen · €176.65</li><li>מחובר לטרמינל 1</li><li>ביטול חינם עד 27.12</li></ul>
+      <span class="pill bad">לעדכן ל-2 מבוגרים</span>
+    </article>
+    <article class="card" style="--accent:var(--coral)">
+      <div class="k">רכב · Dollar (דלפק Hertz)</div>
+      <h3>SEAT Ibiza, אוטומט</h3>
+      <ul><li>25.12 16:00 → 1.1 · FNC</li><li>€333.71 שולם · פיקדון €1,100</li><li>Full to full, ק״מ ללא הגבלה</li></ul>
+      <span class="pill warn">כיסוי בסיסי בלבד</span>
+    </article>
+    <article class="card" style="--accent:var(--laurel)">
+      <div class="k">6 ימי מסלולים · ~63 ק״מ</div>
+      <h3>PR8, PR1, PR9, PR6, PR13, PR16</h3>
+      <ul><li>הרשמה ב-SIMplifica לכל מסלול</li><li>~€75 לשניכם</li><li>גיבוי: PR14, PR11</li></ul>
+      <span class="pill bad">להירשם</span>
+    </article>
+  </div>
+</section>
+
+<section id="itinerary">
+  <h2><span class="dot" style="background:var(--coral)"></span>תוכנית יומית</h2>
+  <p class="muted">26–30.12 גמישים לפי מזג האוויר: היום הצלול ביותר הולך ל-PR1.</p>
+  <div class="days">
+    <article class="day" style="--accent:var(--ocean)"><div class="dhead"><span class="dn">25.12</span><span class="dw">שישי · טיסה</span></div><div class="dbody">
+      <h3>טיסה והגעה ל-Santo da Serra</h3><div class="tags"><span class="tag">לינה: Enotel</span></div>
+      <ul class="sched"><li><span class="t">07:05</span><span>LH695 תל אביב → פרנקפורט</span></li><li><span class="t">12:50</span><span>LH4410 פרנקפורט → פונשל (Discover)</span></li><li><span class="t">16:05</span><span>נחיתה, איסוף רכב בדלפק Hertz</span></li><li><span class="t">~16:45</span><span>צ׳ק-אין ב-Enotel (12–15 דק׳ נסיעה)</span></li><li><span class="t">ערב</span><span>ארוחת חג המולד: להזמין מראש במלון</span></li></ul>
+    </div></article>
+    <article class="day" style="--accent:var(--laurel)"><div class="dhead"><span class="dn">26.12</span><span class="dw">שבת · מסלול</span></div><div class="dbody">
+      <h3>PR8 · Ponta de São Lourenço</h3><div class="tags"><span class="tag">8 ק״מ</span><span class="tag">2.5–3 שעות</span><span class="tag">בינוני</span><span class="tag">חשוף לרוח ושמש</span></div>
+      <ul class="sched"><li><span class="t">07:45</span><span>יציאה מ-Enotel</span></li><li><span class="t">08:30</span><span>כניסה לפי חלון ההזמנה</span></li><li><span class="t">~11:30</span><span>סיום, צהריים ב-Caniçal / Machico</span></li><li><span class="t">אחה״צ</span><span>Machico ו-Pico do Facho</span></li></ul>
+    </div></article>
+    <article class="day" style="--accent:var(--coral)"><div class="dhead"><span class="dn">27.12</span><span class="dw">ראשון · שיא</span></div><div class="dbody">
+      <h3>PR1 + PR1.2 · Areeiro → Pico Ruivo → Achada do Teixeira</h3><div class="tags"><span class="tag">~9 ק״מ</span><span class="tag">4–5 שעות</span><span class="tag">קשה</span><span class="tag">חד-כיווני</span></div>
+      <ul class="sched"><li><span class="t">~06:45</span><span>יציאה ל-Pico do Areeiro (ארוחת בוקר ארוזה)</span></li><li><span class="t">~08:00</span><span>כניסה לפי החלון; זריחה ~08:05, פנסי ראש למנהרות</span></li><li><span class="t">~13:00</span><span>סיום ב-Achada do Teixeira, הסעה מוזמנת חזרה</span></li><li><span class="t">אחה״צ</span><span>ספא ובריכה ב-Enotel</span></li></ul>
+      <p class="tip">קיצור: PR1.2 בלבד, מ-Achada לפסגה וחזרה (5.6 ק״מ, ~1:30). אם התחזית גרועה מחליפים עם יום אחר.</p>
+    </div></article>
+    <article class="day" style="--accent:var(--laurel)"><div class="dhead"><span class="dn">28.12</span><span class="dw">שני · מעבר</span></div><div class="dbody">
+      <h3>PR9 · Caldeirão Verde ומעבר מערבה</h3><div class="tags"><span class="tag">17.4 ק״מ</span><span class="tag">6–6.5 שעות</span><span class="tag">היום הארוך</span><span class="tag">לינה: Engenho Velho</span></div>
+      <ul class="sched"><li><span class="t">~07:00</span><span>צ׳ק-אאוט, המזוודות ברכב</span></li><li><span class="t">~08:00</span><span>תחילת PR9 מ-Queimadas</span></li><li><span class="t">~15:00</span><span>סיום, נסיעה ל-Arco da Calheta</span></li><li><span class="t">ערב</span><span>צ׳ק-אין (14:00–22:00) וארוחה במסעדת המלון</span></li></ul>
+    </div></article>
+    <article class="day" style="--accent:var(--laurel)"><div class="dhead"><span class="dn">29.12</span><span class="dw">שלישי · מסלול</span></div><div class="dbody">
+      <h3>PR6 + PR6.1 · 25 Fontes ו-Risco</h3><div class="tags"><span class="tag">~10–11 ק״מ</span><span class="tag">4–5 שעות</span><span class="tag">בינוני</span></div>
+      <ul class="sched"><li><span class="t">07:45</span><span>יציאה ל-Rabaçal (ארוחת בוקר ארוזה)</span></li><li><span class="t">~08:30</span><span>כניסה לפי החלון</span></li><li><span class="t">~13:00</span><span>סיום, צהריים ב-Ponta do Sol / Calheta</span></li></ul>
+    </div></article>
+    <article class="day" style="--accent:var(--laurel)"><div class="dhead"><span class="dn">30.12</span><span class="dw">רביעי · מסלול</span></div><div class="dbody">
+      <h3>PR13 · Vereda do Fanal</h3><div class="tags"><span class="tag">10.8 ק״מ</span><span class="tag">~4 שעות</span><span class="tag">בינוני</span><span class="tag">ערפל זה חלק מהקסם</span></div>
+      <ul class="sched"><li><span class="t">07:30</span><span>יציאה, חניה ב-Fanal</span></li><li><span class="t">~08:30</span><span>מונית מוזמנת ל-Assobiadores</span></li><li><span class="t">~09:00</span><span>הליכה חזרה ל-Fanal</span></li><li><span class="t">אחה״צ</span><span>Seixal והחוף הצפוני</span></li></ul>
+    </div></article>
+    <article class="day" style="--accent:var(--sun)"><div class="dhead"><span class="dn">31.12</span><span class="dw">חמישי · NYE</span></div><div class="dbody">
+      <h3>PR16 · Fajã do Rodrigues וזיקוקים בפונשל</h3><div class="tags"><span class="tag">7.8 ק״מ</span><span class="tag">~3.5 שעות</span><span class="tag">🎆 חצות</span></div>
+      <ul class="sched"><li><span class="t">~07:15</span><span>יציאה ל-Ginjas / São Vicente</span></li><li><span class="t">~11:30</span><span>סיום, חזרה למלון ומנוחה</span></li><li><span class="t">~17:00</span><span>יציאה לפונשל לפני העומס</span></li><li><span class="t">ערב</span><span>ארוחת ערב מוזמנת וטיילת</span></li><li><span class="t">00:00</span><span>זיקוקים מעל מפרץ פונשל</span></li><li><span class="t">~01:30</span><span>נסיעה חזרה ל-Arco da Calheta</span></li></ul>
+    </div></article>
+    <article class="day" style="--accent:var(--ocean)"><div class="dhead"><span class="dn">1.1</span><span class="dw">שישי · טיסה</span></div><div class="dbody">
+      <h3>חזרה לפרנקפורט</h3><div class="tags"><span class="tag">לינה: Hilton FRA</span></div>
+      <ul class="sched"><li><span class="t">עד 11:00</span><span>צ׳ק-אאוט מ-Engenho Velho</span></li><li><span class="t">~12:45</span><span>נסיעה לשדה (45–50 דק׳)</span></li><li><span class="t">~14:00</span><span>החזרת רכב בדלפק Hertz, מיכל מלא</span></li><li><span class="t">16:55</span><span>LH4411 → פרנקפורט, נחיתה 22:10</span></li><li><span class="t">~22:30</span><span>הליכה מקורה ל-Hilton</span></li></ul>
+    </div></article>
+    <article class="day" style="--accent:var(--ocean)"><div class="dhead"><span class="dn">2.1</span><span class="dw">שבת · הביתה</span></div><div class="dbody">
+      <h3>פרנקפורט → תל אביב</h3>
+      <ul class="sched"><li><span class="t">~08:15</span><span>הליכה לטרמינל 1</span></li><li><span class="t">10:20</span><span>LH686 → תל אביב</span></li><li><span class="t">15:30</span><span>נחיתה, טרמינל 3</span></li></ul>
+    </div></article>
+  </div>
+</section>
+
+<div class="two">
+  <section class="card" id="todo">
+    <h2><span class="dot" style="background:var(--coral)"></span>משימות</h2>
+    <div class="progress" aria-hidden="true"><span id="todo-bar"></span></div>
+    <p class="sync" id="todo-count">—</p>
+    <ul class="list" id="todo-list"></ul>
+  </section>
+  <section class="card" id="checklist">
+    <h2><span class="dot" style="background:var(--laurel)"></span>רשימת אריזה</h2>
+    <div class="progress" aria-hidden="true"><span id="pack-bar"></span></div>
+    <p class="sync" id="pack-count">—</p>
+    <ul class="list" id="pack-list"></ul>
+  </section>
+</div>
+<p class="sync" id="sync-note">הסימונים נשמרים בדפדפן הזה בלבד.</p>
+
+<section class="card" id="costs">
+  <h2><span class="dot" style="background:var(--plum)"></span>עלויות</h2>
+  <div class="scroll"><table>
+    <thead><tr><th>פריט</th><th>מחיר</th><th class="n">≈ USD</th><th>סטטוס</th></tr></thead>
+    <tbody>
+      <tr><td>טיסות 8383T4</td><td><span class="ltr">USD 2,398.14</span></td><td class="n">2,398</td><td><span class="pill ok">שולם</span></td></tr>
+      <tr><td>Enotel, 3 לילות</td><td><span class="ltr">€614</span></td><td class="n">712</td><td><span class="pill ok">שולם</span></td></tr>
+      <tr><td>Engenho Velho, 4 לילות</td><td><span class="ltr">€808</span></td><td class="n">937</td><td><span class="pill warn">יחויב אוטומטית</span></td></tr>
+      <tr><td>Hilton Frankfurt</td><td><span class="ltr">€176.65</span></td><td class="n">205</td><td><span class="pill warn">תשלום במלון</span></td></tr>
+      <tr><td>רכב</td><td><span class="ltr">€333.71</span></td><td class="n">387</td><td><span class="pill ok">שולם</span></td></tr>
+      <tr><td>הרשמות למסלולים</td><td><span class="ltr">~€75</span></td><td class="n">87</td><td><span class="pill bad">להזמין</span></td></tr>
+    </tbody>
+    <tfoot><tr><td>סה״כ</td><td>לא כולל הסעות, דלק וארוחות</td><td class="n">4,727</td><td></td></tr></tfoot>
+  </table></div>
+  <p class="sync">אירו מומר לפי ~1.16 דולר.</p>
+</section>
+
+<details id="refs">
+  <summary>מספרי הזמנה, טלפונים ומקורות</summary>
+  <ul>
+    <li>טיסות: Lufthansa <b class="ltr">8383T4</b></li>
+    <li>Enotel Santo da Serra: Booking.com <b class="ltr">5200092651</b> · <span class="ltr">+351 291 702 004</span></li>
+    <li>Engenho Velho: Booking.com <b class="ltr">5855937615</b> · <span class="ltr">+351 291 143 380</span></li>
+    <li>Hilton Frankfurt Airport: <b class="ltr">3115509855</b> · <span class="ltr">+49 69 2601 2000</span></li>
+    <li>רכב: DiscoverCars <b class="ltr">D015438181</b> · Dollar <span class="ltr">L738EBE8129</span> · <span class="ltr">+351 219 426 300</span></li>
+    <li>הרשמה למסלולים: <a href="https://simplifica.madeira.gov.pt/services/78-82-259" target="_blank" rel="noopener">SIMplifica</a> · מצב מסלולים: <a href="https://visitmadeira.com/en/what-to-do/nature-seekers/notice-to-walkers-and-list-of-walks/" target="_blank" rel="noopener">Visit Madeira</a></li>
+    <li>חוקי 2026 (מקור לא רשמי): <a href="https://madeirahiking.org/fees-booking" target="_blank" rel="noopener">madeirahiking.org</a> · <a href="https://madeirahiking.org/trails/pr1" target="_blank" rel="noopener">PR1</a></li>
+    <li>ממוצעי מזג אוויר: <a href="https://www.holiday-weather.com/funchal/averages/december/" target="_blank" rel="noopener">Holiday Weather, פונשל בדצמבר</a></li>
+  </ul>
+</details>
+</div>
+
+<script>
+const TODO = [
+  ["m1", "הרשמה למסלולים ב-SIMplifica", "לכל אחד, לכל מסלול ויום. PR1 קודם", "דחוף", "bad"],
+  ["m2", "לעדכן את Hilton ל-2 מבוגרים", "אישור 3115509855 · ביטול חינם עד 27.12", "דחוף", "bad"],
+  ["m3", "להחליט על כיסוי מלא לרכב", "DiscoverCars Full Coverage או RentalCover", "דחוף", "bad"],
+  ["m4", "להזמין הסעה ל-PR1", "Achada do Teixeira → Pico do Areeiro, 27.12", "לפני הטיול", "warn"],
+  ["m5", "להזמין מונית ל-PR13", "Fanal → Assobiadores, 30.12 ~08:30", "לפני הטיול", "warn"],
+  ["m6", "לבקש מיטה זוגית ב-Enotel", "ההזמנה היא Twin", "לפני הטיול", "warn"],
+  ["m7", "לבקש ארוחת בוקר ארוזה", "Enotel 27–28.12, Engenho Velho 29–31.12", "לפני הטיול", "warn"],
+  ["m8", "להזמין ארוחת ערב NYE בפונשל", "וארוחת חג המולד ב-25.12", "לפני הטיול", "warn"],
+  ["m9", "להוסיף מספר טיסה LH4410 להזמנת הרכב", "", "קטן", "ok"],
+  ["m10", "ביטוח נסיעות לשניכם", "", "לפני הטיול", "warn"],
+  ["m11", "צ׳ק-אין אונליין", "מ-24.12, 08:05 (23 שעות לפני)", "24.12", "ok"],
+];
+const PACK = [
+  ["p1", "דרכונים", "בתוקף לפחות עד 2.4.2027"],
+  ["p2", "רישיון נהיגה + כרטיס אשראי על שם גלעד", "פיקדון €1,100, לא דביט"],
+  ["p3", "אישורי SIMplifica בטלפון", "בודקים בכניסה למסלולים"],
+  ["p4", "נעלי הליכה ומקלות", ""],
+  ["p5", "שכבות חמות ומעיל רוח", "בפסגות קרוב לאפס"],
+  ["p6", "מעיל גשם", "גשם בכמחצית מימי דצמבר"],
+  ["p7", "פנסי ראש", "מנהרות ב-PR1 ו-PR9"],
+  ["p8", "בגדי ים", "בריכה מחוממת וסאונה ב-Enotel"],
+  ["p9", "מתאם לשקע אירופאי", ""],
+  ["p10", "קרם הגנה ומשקפי שמש", "PR8 חשוף לגמרי"],
+];
+const state = {};
+try { Object.assign(state, JSON.parse(localStorage.getItem("madeira-checks") || "{}")); } catch (e) {}
+function render(listId, items, barId, countId, isTodo) {
+  const ul = document.getElementById(listId);
+  ul.replaceChildren(...items.map(([id, title, sub, tag, tone]) => {
+    const li = document.createElement("li");
+    li.className = "item" + (state[id] ? " done" : "");
+    const box = document.createElement("input");
+    box.type = "checkbox"; box.id = "cb-" + id; box.checked = !!state[id];
+    box.addEventListener("change", () => toggle(id, box.checked));
+    const lab = document.createElement("label");
+    lab.className = "txt"; lab.htmlFor = box.id; lab.textContent = title;
+    if (sub) { const s = document.createElement("small"); s.textContent = sub; lab.appendChild(s); }
+    li.append(box, lab);
+    if (isTodo) { const t = document.createElement("span"); t.className = "pill " + tone; t.textContent = tag; li.appendChild(t); }
+    else li.appendChild(document.createElement("span"));
+    li.addEventListener("click", (e) => { if (e.target === li) box.click(); });
+    return li;
+  }));
+  const done = items.filter(([id]) => state[id]).length;
+  document.getElementById(barId).style.width = (100 * done / items.length) + "%";
+  document.getElementById(countId).textContent = done + " מתוך " + items.length + " בוצעו";
+}
+function renderAll() {
+  render("todo-list", TODO, "todo-bar", "todo-count", true);
+  render("pack-list", PACK, "pack-bar", "pack-count", false);
+}
+function toggle(id, done) {
+  state[id] = done;
+  try { localStorage.setItem("madeira-checks", JSON.stringify(state)); } catch (e) {}
+  renderAll();
+}
+function countdown() {
+  const dep = Date.UTC(2026, 11, 25, 5, 5);
+  const days = Math.max(0, Math.ceil((dep - Date.now()) / 86400000));
+  document.querySelector("#countdown b").textContent = days.toLocaleString("he");
+  if (days === 0) document.querySelector("#countdown span").textContent = "טיסה טובה!";
+}
+renderAll();
+countdown();
+setInterval(countdown, 3600000);
+</script>
+</body>
+</html>
