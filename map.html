@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<title>Madeira · Trip Map</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Frank+Ruhl+Libre:wght@700&family=Rubik:wght@400;500;600;700&display=swap">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css">
+<style>
+:root {
+  --bg: #f3f7f5; --paper: #ffffff; --ink: #14231d; --muted: #5a6b64; --line: #dbe5e0;
+  --ocean: #1b5f8c; --laurel: #2e7d4f; --coral: #d9493a; --sun: #e9a400; --plum: #6d4bb8;
+  --display: "Frank Ruhl Libre", Georgia, serif; --body: "Rubik", system-ui, sans-serif;
+  color-scheme: light;
+}
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) {
+  --bg: #0f1714; --paper: #18221e; --ink: #e9f1ed; --muted: #9fb0a8; --line: #2a3832; color-scheme: dark; } }
+:root[data-theme="dark"] { --bg: #0f1714; --paper: #18221e; --ink: #e9f1ed; --muted: #9fb0a8; --line: #2a3832; color-scheme: dark; }
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--bg); color: var(--ink); font-family: var(--body); font-size: 15px; line-height: 1.5; }
+.wrap { max-width: 1080px; margin: 0 auto; padding: 18px max(16px, env(safe-area-inset-right, 0px)) 40px max(16px, env(safe-area-inset-left, 0px)); display: grid; gap: 16px; }
+header { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; flex-wrap: wrap; }
+h1 { font-family: var(--display); font-size: clamp(26px, 5vw, 38px); margin: 0; }
+.back { font-weight: 600; color: var(--ocean); text-decoration: none; }
+.back:hover { text-decoration: underline; }
+.sub { color: var(--muted); margin: 0; }
+#map { height: min(64vh, 560px); min-height: 340px; border-radius: 18px; border: 1px solid var(--line); overflow: hidden; z-index: 0; }
+.legend { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 250px), 1fr)); gap: 8px; }
+.legend button { width: 100%; display: grid; grid-template-columns: 34px 1fr; gap: 10px; align-items: center; text-align: right; font: inherit; color: inherit; background: var(--paper); border: 1px solid var(--line); border-radius: 12px; padding: 8px 10px; cursor: pointer; }
+.legend button:hover, .legend button:focus-visible { border-color: var(--ocean); outline: none; }
+.legend b { display: block; font-weight: 600; }
+.legend small { color: var(--muted); }
+.pin { width: 30px; height: 30px; border-radius: 50%; display: grid; place-items: center; font-size: 15px; color: #fff; border: 2px solid #fff; box-shadow: 0 1px 4px rgba(0,0,0,.35); }
+.pinwrap { display: grid; justify-items: center; gap: 2px; width: 90px; margin-inline-start: -30px; }
+.pinlabel { font: 600 11px var(--body); background: rgba(255,255,255,.92); color: #14231d; padding: 1px 6px; border-radius: 999px; white-space: nowrap; box-shadow: 0 1px 2px rgba(0,0,0,.2); }
+.leaflet-popup-content { font-family: var(--body); direction: rtl; text-align: right; margin: 10px 12px; }
+.leaflet-popup-content b { font-size: 14px; }
+.pop-links { display: flex; gap: 10px; margin-top: 6px; flex-wrap: wrap; }
+.pop-links a { font-weight: 600; color: #1b5f8c; }
+.note { font-size: 12px; color: var(--muted); }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <h1>מדיירה · מפת הטיול</h1>
+    <a class="back" href="./">→ חזרה לתוכנית</a>
+  </header>
+  <p class="sub">המלונות, נקודות ההתחלה של המסלולים והזיקוקים. לחיצה על נקודה פותחת ניווט ב-Google Maps.</p>
+  <div id="map" role="region" aria-label="מפת מדיירה עם נקודות הטיול"></div>
+  <ul class="legend" id="legend"></ul>
+  <p class="note">הלילה האחרון (1–2.1) ב-Hilton Frankfurt Airport, מחוץ למפה. מפה: © OpenStreetMap contributors.</p>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
+<script>
+const C = { ocean: "#1b5f8c", laurel: "#2e7d4f", coral: "#d9493a", sun: "#e9a400", plum: "#6d4bb8" };
+const POINTS = [
+  { icon: "✈️", color: C.ocean, label: "FNC", title: "שדה התעופה של מדיירה (FNC)", when: "נחיתה 25.12 16:05 · המראה 1.1 16:55", lat: 32.6975155, lng: -16.774145 },
+  { icon: "🏨", color: C.plum, label: "Enotel", title: "Enotel Santo da Serra", when: "לינה 25–28.12 · 3 לילות", lat: 32.7244989, lng: -16.8169406, info: "https://www.enotel.com/santo-da-serra" },
+  { icon: "🏨", color: C.plum, label: "Engenho Velho", title: "Engenho Velho", when: "לינה 28.12–1.1 · 4 לילות", lat: 32.7143751, lng: -17.1544354, info: "https://engenhovelho.com/" },
+  { icon: "🥾", color: C.laurel, label: "26.12", title: "PR8 · Ponta de São Lourenço", when: "26.12 · התחלה ב-Baía d'Abra", lat: 32.7452119, lng: -16.6981211, info: "https://madeirahiking.org/trails/pr8" },
+  { icon: "🥾", color: C.coral, label: "27.12", title: "PR1 · Pico do Areeiro", when: "27.12 · התחלת PR1 (לחנות כאן)", lat: 32.735556, lng: -16.928889, info: "https://madeirahiking.org/trails/pr1" },
+  { icon: "🏁", color: C.coral, label: "סיום PR1", title: "PR1 · Achada do Teixeira", when: "27.12 · סיום, הסעה חזרה ל-Areeiro", lat: 32.7649509, lng: -16.9208276, info: "https://madeirahiking.org/trails/pr1" },
+  { icon: "🥾", color: C.laurel, label: "28.12", title: "PR9 · Caldeirão Verde", when: "28.12 · התחלה ב-Queimadas", lat: 32.7834966, lng: -16.9058883, info: "https://madeirahiking.org/trails/pr9" },
+  { icon: "🥾", color: C.laurel, label: "29.12", title: "PR6 · 25 Fontes ו-Risco", when: "29.12 · התחלה ב-Rabaçal", lat: 32.7555423, lng: -17.1342686, info: "https://madeirahiking.org/trails/pr6" },
+  { icon: "🥾", color: C.laurel, label: "30.12", title: "PR13 · Vereda do Fanal", when: "30.12 · חניה ב-Fanal", lat: 32.8096141, lng: -17.1438626, info: "https://madeirahiking.org/trails/pr13" },
+  { icon: "🥾", color: C.laurel, label: "31.12", title: "PR16 · Fajã do Rodrigues", when: "31.12 · התחלה ב-Ginjas · לבדוק אם פתוח", lat: 32.7842265, lng: -17.0411038, info: "https://madeirahiking.org/trails/pr16" },
+  { icon: "🎆", color: C.sun, label: "זיקוקים", title: "זיקוקים · Marina do Funchal", when: "31.12 · חצות", lat: 32.6460201, lng: -16.9104318 },
+];
+const map = L.map("map", { scrollWheelZoom: false, tap: true });
+L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", { maxZoom: 18, attribution: "© OpenStreetMap" }).addTo(map);
+const esc = (s) => String(s).replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+const markers = POINTS.map((p) => {
+  const html = '<div class="pinwrap"><div class="pin" style="background:' + p.color + '">' + p.icon + '</div><div class="pinlabel">' + esc(p.label) + '</div></div>';
+  const icon = L.divIcon({ html, className: "", iconSize: [30, 48], iconAnchor: [15, 15], popupAnchor: [0, -14] });
+  const nav = "https://www.google.com/maps/dir/?api=1&destination=" + p.lat + "," + p.lng;
+  const links = '<a href="' + nav + '" target="_blank" rel="noopener">ניווט ↗</a>' + (p.info ? '<a href="' + p.info + '" target="_blank" rel="noopener">מידע ↗</a>' : "");
+  return L.marker([p.lat, p.lng], { icon, title: p.title }).addTo(map)
+    .bindPopup("<b>" + esc(p.title) + "</b><br>" + esc(p.when) + '<div class="pop-links">' + links + "</div>");
+});
+map.fitBounds(L.latLngBounds(POINTS.map((p) => [p.lat, p.lng])), { padding: [30, 30] });
+map.on("click", () => map.scrollWheelZoom.enable());
+const legend = document.getElementById("legend");
+POINTS.forEach((p, i) => {
+  const li = document.createElement("li");
+  const b = document.createElement("button");
+  b.type = "button";
+  const dot = document.createElement("span");
+  dot.className = "pin"; dot.style.background = p.color; dot.textContent = p.icon;
+  const txt = document.createElement("span");
+  const t = document.createElement("b"); t.textContent = p.title;
+  const w = document.createElement("small"); w.textContent = p.when;
+  txt.append(t, w);
+  b.append(dot, txt);
+  b.addEventListener("click", () => {
+    document.getElementById("map").scrollIntoView({ behavior: "smooth", block: "center" });
+    map.flyTo([p.lat, p.lng], 13, { duration: 0.8 });
+    setTimeout(() => markers[i].openPopup(), 850);
+  });
+  li.appendChild(b);
+  legend.appendChild(li);
+});
+</script>
+</body>
+</html>
