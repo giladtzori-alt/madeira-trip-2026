@@ -76,6 +76,9 @@ section { display: grid; gap: 14px; }
 .hl .card { border-top: 6px solid var(--accent); }
 .k { font-size: 12px; font-weight: 700; color: var(--accent); letter-spacing: .03em; }
 .hl h3 { font-size: 19px; }
+.links { display: flex; flex-wrap: wrap; gap: 8px; }
+.links a { font-size: 13px; font-weight: 600; text-decoration: none; padding: 4px 12px; border-radius: 999px; border: 1px solid var(--line); background: var(--bg); color: var(--ocean); }
+.links a:hover { border-color: var(--ocean); }
 .hl ul, .day ul { margin: 0; padding-inline-start: 18px; color: var(--muted); }
 
 .days { display: grid; gap: 12px; }
@@ -178,18 +181,21 @@ a { color: var(--ocean); }
       <div class="k">3 לילות · מזרח</div>
       <h3>Enotel Santo da Serra</h3>
       <ul><li>25–28.12 · ארוחת בוקר כלולה</li><li>Standard Twin · €614 שולם</li><li>ביטול חינם עד 23.12</li></ul>
+      <div class="links"><a href="https://www.enotel.com/santo-da-serra" target="_blank" rel="noopener">אתר המלון ↗</a><a href="https://www.google.com/maps/search/?api=1&amp;query=Enotel%20Santo%20da%20Serra%2C%20Santo%20Ant%C3%B3nio%20da%20Serra%2C%20Madeira" target="_blank" rel="noopener">מפה ↗</a></div>
       <span class="pill warn">לבקש מיטה זוגית</span>
     </article>
     <article class="card" style="--accent:var(--plum)">
       <div class="k">4 לילות · מערב · Adults only</div>
       <h3>Engenho Velho</h3>
       <ul><li>28.12–1.1 · King · ארוחת בוקר 08:00–10:00</li><li>€808, יחויב אוטומטית</li><li>ביטול חינם עד 13.12</li></ul>
+      <div class="links"><a href="https://engenhovelho.com/" target="_blank" rel="noopener">אתר המלון ↗</a><a href="https://www.google.com/maps/search/?api=1&amp;query=Engenho%20Velho%20Hotel%2C%20Rua%20do%20Ledo%2021%2C%20Arco%20da%20Calheta%2C%20Madeira" target="_blank" rel="noopener">מפה ↗</a></div>
       <span class="pill ok">הוזמן</span>
     </article>
     <article class="card" style="--accent:var(--sun)">
       <div class="k">1 לילה · שדה התעופה</div>
       <h3>Hilton Frankfurt Airport</h3>
       <ul><li>1–2.1 · Queen · €176.65</li><li>מחובר לטרמינל 1</li><li>ביטול חינם עד 27.12</li></ul>
+      <div class="links"><a href="https://www.hilton.com/en/hotels/fraaphi-hilton-frankfurt-airport/" target="_blank" rel="noopener">אתר המלון ↗</a><a href="https://www.google.com/maps/search/?api=1&amp;query=Hilton%20Frankfurt%20Airport%2C%20The%20Squaire" target="_blank" rel="noopener">מפה ↗</a></div>
       <span class="pill bad">לעדכן ל-2 מבוגרים</span>
     </article>
     <article class="card" style="--accent:var(--coral)">
@@ -288,9 +294,9 @@ a { color: var(--ocean); }
   <summary>מספרי הזמנה, טלפונים ומקורות</summary>
   <ul>
     <li>טיסות: Lufthansa <b class="ltr">8383T4</b></li>
-    <li>Enotel Santo da Serra: Booking.com <b class="ltr">5200092651</b> · <span class="ltr">+351 291 702 004</span></li>
-    <li>Engenho Velho: Booking.com <b class="ltr">5855937615</b> · <span class="ltr">+351 291 143 380</span></li>
-    <li>Hilton Frankfurt Airport: <b class="ltr">3115509855</b> · <span class="ltr">+49 69 2601 2000</span></li>
+    <li><a href="https://www.enotel.com/santo-da-serra" target="_blank" rel="noopener">Enotel Santo da Serra</a>: Booking.com <b class="ltr">5200092651</b> · <span class="ltr">+351 291 702 004</span></li>
+    <li><a href="https://engenhovelho.com/" target="_blank" rel="noopener">Engenho Velho</a>: Booking.com <b class="ltr">5855937615</b> · <span class="ltr">+351 291 143 380</span></li>
+    <li><a href="https://www.hilton.com/en/hotels/fraaphi-hilton-frankfurt-airport/" target="_blank" rel="noopener">Hilton Frankfurt Airport</a>: <b class="ltr">3115509855</b> · <span class="ltr">+49 69 2601 2000</span></li>
     <li>רכב: DiscoverCars <b class="ltr">D015438181</b> · Dollar <span class="ltr">L738EBE8129</span> · <span class="ltr">+351 219 426 300</span></li>
     <li>הרשמה למסלולים: <a href="https://simplifica.madeira.gov.pt/services/78-82-259" target="_blank" rel="noopener">SIMplifica</a> · מצב מסלולים: <a href="https://visitmadeira.com/en/what-to-do/nature-seekers/notice-to-walkers-and-list-of-walks/" target="_blank" rel="noopener">Visit Madeira</a></li>
     <li>חוקי 2026 (מקור לא רשמי): <a href="https://madeirahiking.org/fees-booking" target="_blank" rel="noopener">madeirahiking.org</a> · <a href="https://madeirahiking.org/trails/pr1" target="_blank" rel="noopener">PR1</a></li>
